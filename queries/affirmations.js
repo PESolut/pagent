@@ -1,3 +1,4 @@
+const db = require("../db/dbConfig.js");
 
 const getAllAffirmations = async () => {
     try {
@@ -16,8 +17,6 @@ const getOneAffirmation = async (id) => {
         return error
     }
 }
-
-const db = require("../db/dbConfig");
 
 const createAffirmation = async (affirmation) => {
   try {
@@ -46,7 +45,7 @@ const createAffirmation = async (affirmation) => {
 const updateAffirmation = async (affirmation, id) => {
     try {
       const updatedAffirmation = await db.one(
-        "UPDATE affirmations SET event_type=$1, source_db=$2, payload=$3, status=$4 meta=$5 WHERE id=$6 RETURNING *",
+        "UPDATE affirmations SET event_type=$1, source_db=$2, payload=$3, status=$4, meta=$5 WHERE id=$6 RETURNING *",
         [
           affirmation.event_type,
           affirmation.source_db,

@@ -35,7 +35,7 @@ affirmation.post("/", async (req, res) => {
 
 affirmation.put("/:id", async (req, res) => {
     const { id } = req.params
-    const updatedAffirmation = await updateaffirmation(req.body, id)
+    const updatedAffirmation = await updateAffirmation(req.body, id)
 
     if(!updatedAffirmation.message){
         res.status(200).json(updatedAffirmation)
