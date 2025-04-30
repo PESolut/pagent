@@ -4,10 +4,15 @@
   "description": "Core server for receiving Notion webhooks and syncing tasks.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dbinit": "psql -U preme_user -d preme_dev -f db/schema.sql",
+    "dbseed": "psql -U preme_user -d preme_dev -f db/seed.sql"
+
+
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "dotenv": "^16.3.1"
+    "pg-promise": "^11.13.0"
   }
 }

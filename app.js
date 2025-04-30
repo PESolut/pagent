@@ -1,6 +1,8 @@
 // DEPENDACIES
 const express = require("express");
 const mockReq = require("./mockData")
+const db = require("./db/dbConfig")
+
 
 // CONFIGURATION
 const app = express();
@@ -18,6 +20,10 @@ app.get("/", (req, res) => {
     res.status(200).send('Welcome to P-Agent backend server.')
 });
 
+app.get('/affirmations', (req, res) => {
+    res.status
+})
+
 app.post("/notion-webhook", (req, res) => {
   console.log("📬 Received webhook from Notion:");
   console.log(req.body.data.properties)
@@ -32,10 +38,6 @@ app.post("/notion-webhook", (req, res) => {
     'Reflection': req.body.data.properties['Sprint Reflection'].rich_text[0].plain_text,
     'Status': req.body.data.properties['Sprint Status'].select.name,
     'Name': req.body.data.properties['Sprint Name'].title[0].plain_text
-
-
-
-
   }
   console.log('sprint props:',sprintProps)
   res.status(200).send("Webhook received");
