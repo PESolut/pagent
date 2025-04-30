@@ -1,8 +1,6 @@
 // DEPENDACIES
 const express = require("express");
-const mockReq = require("./mockData")
-const db = require("./db/dbConfig")
-
+const affirmationsController = require("./controllers/affirmationsController");
 
 // CONFIGURATION
 const app = express();
@@ -11,7 +9,7 @@ const app = express();
 app.use(express.json())
 
 // CONTROLLERS
-// app.use('/example', exampleController)
+app.use('/affirmations', affirmationsController)
 
 
 
